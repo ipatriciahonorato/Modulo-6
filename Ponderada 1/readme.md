@@ -44,7 +44,7 @@ Foram criadas uma classe para controle e movimentação da tartaruga, e funçõe
 
 A execução do programa completo pode ser visto no link disposto a seguir: [Ponderada 1 - execução do programa](https://drive.google.com/file/d/1KqXuVnSn0EWh397fOX4JjLtbeFyAlC9c/view?usp=sharing)
 
-O código está disponibilizado em: [Código Ponderada 1]
+O código está disponibilizado em: [Código Ponderada 1](https://github.com/ipatriciahonorato/Modulo-6/tree/main/Ponderada%201/codigo)
 
 ## Arquivo de referências
 
