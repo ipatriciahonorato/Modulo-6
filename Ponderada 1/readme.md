@@ -15,7 +15,10 @@ O código é executado no subsistema WSL com as distribuições Ubuntu e o Debia
 
 ## Código
 
-Para acessar esse código é necessário executar os seguintes comandos no ubuntu:
+Para acessar esse código é necessário executar dois comandos em dois terminais no ubuntu.
+
+
+O primeiro comando abaixo, executa o código que movimenta a simulação:
 
     cd exemplo
     .
@@ -24,6 +27,10 @@ Para acessar esse código é necessário executar os seguintes comandos no ubunt
         └── requirements.txt
 
 1 directory, 2 files
+
+O segundo comando executa a simulação do projeto:
+
+    ros2 run demo_nodes_cpp listener
 
 O código desenvolvido realiza a movimentação de uma tartaruga em um ambiente de simulação por meio do ROS. O objetivo geral desse projeto foi desenhar uma casa com a tartaruga. O programa utiliza o ROS através da biblioteca rclpy em python.
 
@@ -35,7 +42,9 @@ Foram criadas uma classe para controle e movimentação da tartaruga, e funçõe
  
  4. Função `main`: instância a classe `TurtleController`e realiza a execução do nó e o encerra após a execução do programa. 
 
-A execução do programa completo pode ser visto no link disposto a seguir: [Pondera 1 - execução do programa]
+A execução do programa completo pode ser visto no link disposto a seguir: [Ponderada 1 - execução do programa]
+
+O código está disponibilizado em: [Código Ponderada 1]
 
 ## Arquivo de referências
 
