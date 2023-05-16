@@ -13,7 +13,7 @@ Crie um pacote em ROS capaz de interagir com uma simulação feita no Gazebo de 
 - Python;
 - ROS (Robot Operating System);
 - Gazebo;
- - Bibliotecas: Bibliotecas: rclpy (python), math (math), geometry_msgs (ROS), nav_msgs (ROS). 
+ - Bibliotecas: Bibliotecas: rclpy, math, geometry_msgs, nav_msgs. 
 
 ## Código/Pacote
 
@@ -21,9 +21,9 @@ O objetivo desse projeto foi controlar a movimentação do robô TurtleBot3 em u
 
 Foram criadas uma classe para controle e movimentação do TurtleBot3, e funções com método para controle da velocidade e redirecionamento do robô.
 
- 1. Classe `TurtleController`: Essa classe é definida com um nó do ROS 2 e cria um tópico para enviar informações de publicação da velocidade angular e linear do TurtleBot3. As mensagens são criadas por meio do `Twist` da biblioteca `geometry_msgs`.
+ 1. Classe `TurtleController`: Essa classe é definida com um nó do ROS 2 e cria um tópico para enviar informações de publicação da velocidade angular e linear do TurtleBot3. 
  
- 2. Função `__init__(self)`: A função define a criação de um publicador que publica mensagens no tópico "/cmd_vel" e um subscritor que se inscreve no tópico "/odom". Estes tópicos são usados para controle de movimento de robôs e recebimento de informações de odometria.
+ 2. Função `__init__(self)`: A função define a criação de um publicador que publica mensagens no tópico "/cmd_vel" e um subscritor que se inscreve no tópico "/odom". 
  
  4. Função `odom_callback(self, msg)`: Essa função é um callback chamada quando nova mensagem é recebida no tópico "/odom". 
  
