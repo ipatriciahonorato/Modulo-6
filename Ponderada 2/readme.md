@@ -30,6 +30,6 @@ Foram criadas uma classe para controle e movimentação do TurtleBot3, e funçõ
  6. Função `move_straight e stop_moving`: função move_straight envia mensagens de controle de velocidade do TurtleBot3 considerando a velocidade linear e publica essas informações no método move_straight, fazendo o robô mover-se para frente ou para trás. A função stop_moving é utilizada para parar o movimento do robô. Ademais, é utilizado o math.sqrt para calcular a distância percorrida pelo robô. 
  
 
-A execução do programa completo pode ser visto no link disposto a seguir: [Ponderada 2 - execução do programa]()
+A execução do programa completo pode ser visto no link disposto a seguir: [Ponderada 2 - execução do programa](https://drive.google.com/file/d/1qIXDDRkNdjEkGXaPDTmT-Ybrgx3vPCDA/view?usp=sharing)
 
 O código principal do projeto está disponível em: [Código Ponderada 2](https://github.com/ipatriciahonorato/Modulo-6/blob/main/Ponderada%202/ponderada_2/controller.py)
