@@ -32,6 +32,6 @@ Na validação, a tarefa é definida novamente como `segment`, mas o modo é def
 
 Na predição, o modelo validado é usado para prever a presença de rachaduras em imagens de teste, com a confiança definida em 0.25. Posteriormente, localmente em um arquivo `.py`, o modelo é carregado usando a biblioteca Ultralytics YOLO e é usado para prever imagens em tempo real por meio da webcam com uma confiança de 50%.
 
-A execução do projeto em tempo real pode ser vista no seguinte link: [Execução do Projeto](https://)
+A execução do projeto em tempo real pode ser vista no seguinte link: [Execução do Projeto](https://drive.google.com/file/d/1njxaZ7hY9l7mPRHvQqPHjqkl8HxfRzx2/view?usp=sharing)
 
-O código principal do projeto está disponível em: [Código do Projeto](https://)
+O código principal do projeto está disponível em: [Código do Projeto](https://github.com/ipatriciahonorato/Modulo-6/tree/main/Ponderada%203/codigo)
