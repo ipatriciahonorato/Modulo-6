@@ -1,37 +1,55 @@
-# Atividade 3: Processamento de imagens e detecção de objetos
+# Atividade 4: Backend para transmissão e armazenamento de imagens
+
 # Enunciado
 
-Desenvolva um script em Python capaz de identificar rachaduras em paredes de concreto. Utilize o [dataset](https://universe.roboflow.com/university-bswxt/crack-bphdr/dataset/2) desenvolvido pela Roboflow. Para o desenvolvimento dessa atividade, recomenda-se o uso de um modelo de detecção de objetos pré-treinado, como o [YoLo](https://github.com/ultralytics/ultralytics). É possível ver um exemplo de como desenvolver um script similar [nesse vídeo](https://www.youtube.com/watch?v=vFGxM2KLs10).
+Desenvolva o software de um backend capaz de receber imagens e armazená-las adequadamente. Não há restrições com relação à tecnologia utilizada.
 
 ## Tecnologias utilizadas
 
--   YOLOv8 (You Only Look Once versão 8);
--   Python;
--   Google Colab;
--   Roboflow;
--   OpenCV;
--   Ultralytics YOLO;
--   Bibliotecas: glob, IPython.display.
+-   HTML
+-   JavaScript
+-   Python
+-   YOLOv8 
+-   Flask
+-   SQLite3
+-   Bibliotecas: PIL (Python Imaging Library), Waitress, Ultralytics YOLO.
 
 ## Projeto
 
-O objetivo deste projeto é treinar, validar e utilizar um modelo YOLOv8 para detecção de rachaduras em imagens de concreto. O dataset utilizado nesse projeto se encontra nesse link do [RoboFlow.](https://universe.roboflow.com/university-bswxt/crack-bphdr/dataset/2) 
+Este projeto é uma aplicação web que utiliza o modelo YOLOv8 para detecção de objetos em imagens carregadas pelo usuário. Após o processamento no backend e a detecção dos objetos, as coordenadas das caixas delimitadoras são retornadas, desenhadas na imagem e exibidas ao usuário. As imagens processadas também são armazenadas em um banco de dados SQLite3.
 
-Para desenvolvimento do projeto foi utilizado um [notebook do google colab da ultralytics](https://github.com/roboflow/notebooks/blob/main/notebooks/train-yolov7-instance-segmentation-on-custom-data.ipynb), o qual contém toda sequência de comandos necessários de preparação do ambiente, treinamento, validação e predição com o modelo YOLOv8.
+## Funcionalidades
 
-### Principais Funções e Comandos
+-   **Upload de imagem:** O usuário pode fazer upload de uma imagem para ser processada pelo backend.
+    
+-   **Detecção de objetos:** A imagem é processada pelo modelo YOLOv8 no backend para detecção de objetos. Os objetos detectados e as coordenadas das suas caixas delimitadoras são retornados para o frontend.
+    
+-   **Exibição dos resultados:** O frontend desenha as caixas delimitadoras dos objetos detectados na imagem e exibe o resultado ao usuário.
+    
+-   **Armazenamento de resultados:** Os resultados das detecções de objetos são armazenados em uma base de dados SQLite3 com os parâmetros da probabilidade da detecção.
 
- - **Roboflow:** a API do Roboflow é utilizada para acessar e baixar o conjunto de dados do projeto.
--   **YOLO:** O comando YOLO é utilizado com diferentes parâmetros para executar tarefas de treinamento, validação e predição.
--   **Ultralytics YOLO:** A biblioteca Ultralytics YOLO para carregar o modelo treinado e fazer a predição.
--   **OpenCV:** A biblioteca OpenCV é utilizada para manipulação de imagem e vídeo.
+## Principais Funções
+ 
+ ### Script Frontend:
+ 
+1. `EventListener:` Acionada ao selecionar um arquivo de imagem no campo de upload. O arquivo selecionado é então enviado para o servidor através de uma solicitação HTTP POST, utilizando a função `fetch()` do JavaScript.
 
-No treinamento, a função `yolo` é usada com a tarefa definida como `segment` e o modo como `train`. O modelo é treinado usando um arquivo de dados YAML localizado no caminho especificado.
+2. `draw_image_and_boxes()`: Esta função recebe o arquivo de imagem e um array de caixas delimitadoras como parâmetros. E em seguida, desenha as caixas delimitadoras sobre os objetos detectados na imagem.
 
-Na validação, a tarefa é definida novamente como `segment`, mas o modo é definido como `val`. O modelo treinado é validado utilizando o mesmo arquivo de dados YAML.
+### Script Servidor:
 
-Na predição, o modelo validado é usado para prever a presença de rachaduras em imagens de teste, com a confiança definida em 0.25. Posteriormente, localmente em um arquivo `.py`, o modelo é carregado usando a biblioteca Ultralytics YOLO e é usado para prever imagens em tempo real por meio da webcam com uma confiança de 50%.
+1. `root():` Esta função é a responsável por lidar com as solicitações GET para a página inicial ("/") do servidor. Ela retorna o conteúdo do arquivo index.html.
 
-A execução do projeto em tempo real pode ser vista no seguinte link: [Execução do Projeto](https://drive.google.com/file/d/1njxaZ7hY9l7mPRHvQqPHjqkl8HxfRzx2/view?usp=sharing)
+3. `detect():` Esta função é o handler para o endpoint "/detect" e é ativada quando uma solicitação POST é enviada para esse endpoint. Ela extrai a imagem do corpo da solicitação, passa a imagem pelo modelo YOLOv8 para detectar objetos, e retorna as coordenadas das caixas delimitadoras dos objetos detectados.
 
-O código principal do projeto está disponível em: [Código do Projeto](https://github.com/ipatriciahonorato/Modulo-6/tree/main/Ponderada%203/codigo)
+4. `detect_objects_on_image():` Esta função é responsável por aplicar o modelo YOLOv8 em uma imagem e retornar uma lista de caixas delimitadoras dos objetos detectados na imagem. A função também é responsável por salvar as detecções no banco de dados.
+
+A execução do projeto em tempo real pode ser vista no seguinte link: [Execução do Projeto](https://drive.google.com/file/d/122q_V_ry1g4XoiNjRhTc_TD2hSj3DV-m/view?usp=sharing)
+
+A pasta contendo o backend e frontend do projeto está presente em: [Frontend e Backend](https://github.com/ipatriciahonorato/Modulo-6/tree/main/Ponderada%204/Public)
+
+# Material de apoio
+
+-   FreeCodeCamp.org. (2023). "How to Detect Objects in Images Using the YOLOv8 Neural Network". Disponível em: [https://www.freecodecamp.org/news/how-to-detect-objects-in-images-using-yolov8/](https://www.freecodecamp.org/news/how-to-detect-objects-in-images-using-yolov8/). Acesso em: 14 jun. 2023.
+    
+-   Towards Data Science. (2023). "Enhanced Object Detection: How To Effectively Implement YOLOv8". Disponível em: [https://towardsdatascience.com/enhanced-object-detection-how-to-effectively-implement-yolov8-afd1bf6132ae](https://towardsdatascience.com/enhanced-object-detection-how-to-effectively-implement-yolov8-afd1bf6132ae). Acesso em: 14 jun. 2023.
